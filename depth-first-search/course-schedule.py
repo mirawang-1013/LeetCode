@@ -2,42 +2,25 @@ from collections import deque
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        g = defaultdict(list)
-        courses = prerequisites
-        for a, b in courses:
-            g[a].append(b)
+        preMap = {i:[] for i in range(numCourses)}
+        for crs, pre in prerequisites:
+            preMap[crs].append(pre)
         
-        UNVISITED = 0
-        VISITING = 1
-        VISITED = 2
-        states = [UNVISITED] * numCourses
-
-        def dfs(node):
-            state = states[node]
-            if state == VISITED: return True
-            elif state == VISITING: return False
-
-            states[node] = VISITING #start to explore
-
-            for neighbor in g[node]:
-                if not dfs(neighbor): #没找到闭环的，就标记为visited
-                    return False
-            
-            states[node] = VISITED
-            return True
-        
-        for i in range(numCourses):
-            if not dfs(i):
+        visitSet = set()
+        def dfs(crs):
+            if crs in visitSet:
                 return False
-        
+            
+            if preMap[crs]==[]:
+                return True
+            
+            visitSet.add(crs)
+            for pre in preMap[crs]:
+                if not dfs(pre):
+                    return False
+                return True
+            visitSet.remove(crs)
+            preMap[crs]=[]
+        for crs in range(numCourses):
+            if not dfs(crs): return False
         return True
-
-
-
-
-
-
-
-
-
-
