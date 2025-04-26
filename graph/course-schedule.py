@@ -18,9 +18,10 @@ class Solution:
             for pre in preMap[crs]:
                 if not dfs(pre):
                     return False
-                return True
+                
             visitSet.remove(crs)
             preMap[crs]=[]
+            return True
         for crs in range(numCourses):
             if not dfs(crs): return False
         return True
