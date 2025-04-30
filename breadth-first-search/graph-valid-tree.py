@@ -1,4 +1,5 @@
 class Solution:
+    
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         if len(edges) != n-1: #if number of edges is not right then return false
             return False
@@ -17,14 +18,15 @@ class Solution:
             if node in visited:
                 return False
             visited.add(node)
-            for neighbor in graph[node]:
+            for neighbor in graph[node]: #O(V)
                 if neighbor == parent:
                     continue
-                if not dfs(neighbor, node):
+                if not dfs(neighbor, node): #O(E)
                     return False
             return True
         
         return dfs(0,-1) and len(visited)==n
+        #time complexity O(V+E)
                     
                 
 
