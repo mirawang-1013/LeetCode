@@ -4,13 +4,10 @@ class Solution:
         longest = 0
         for num in nums:
             if num-1 not in num_set: #try to find out the starting point
-                current = num
-                length = 1
+                length = 0
 
-                while current+1 in num_set:
-                    current += 1
+                while (num+length) in num_set:
                     length += 1
-                
                 longest = max(longest, length)
 
         return longest
