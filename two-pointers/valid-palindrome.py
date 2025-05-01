@@ -1,21 +1,24 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        if len(s)== 0:
-            return False
-    
-        start = 0
-        end = len(s)-1
-        while start<end:
-                    # Skip non-alphanumeric characters from the start
-            while start < end and not s[start].isalnum():
-                start += 1
-            # Skip non-alphanumeric characters from the end
-            while start < end and not s[end].isalnum():
-                end -= 1
-       
-            if s[start].lower()!=s[end].lower():
+        l,r = 0, len(s)-1
+
+        while l<r:
+            if not self.isAlNum(s[l]):
+                l+=1
+                continue
+               
+            if not self.isAlNum(s[r]):
+                r-=1
+                continue
+         
+            if s[l].lower() != s[r].lower():
                 return False
-            start+=1
-            end-=1
+            l,r = l+1, r-1
         return True
-            
+
+
+    def isAlNum(self,c):
+        return ((ord('A')<= ord(c)<= ord('Z')) or 
+        (ord('0')<=ord(c)<=ord('9')) or 
+        (ord('a')<=ord(c)<=ord('z'))
+        )
