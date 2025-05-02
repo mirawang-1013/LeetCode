@@ -11,7 +11,7 @@ class Solution:
                 if not stack or stack.pop() != pairs[char]:
                     return False      
         return not stack
-
+#return not stack equals to
 # if len(stack) == 0:
 #     return True
 # else:
