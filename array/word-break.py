@@ -1,7 +1,7 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         words = set(wordDict)
-
+        @cache
         def dp(s: str) -> bool:
             if s in words: return True
             for i in range(min(len(s),20)):
