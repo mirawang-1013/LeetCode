@@ -9,7 +9,7 @@ class Solution:
             if n<0:
                 cur_max,cur_min = cur_min,cur_max
             cur_max=max(n,n*cur_max)
-            cur_min=max(n,n*cur_min)
+            cur_min=min(n,n*cur_min)
 
             max_prod = max(max_prod, cur_max)
         
