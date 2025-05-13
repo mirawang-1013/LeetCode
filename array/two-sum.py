@@ -1,14 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         pair = []
-        for i in range(0,len(nums)):
+        for i in range(len(nums)):
             complement = target-nums[i]
-            if complement in nums:
-              j = nums.index(complement)
-              # p = (i,j)
-              # p=sorted(p)
-              if j!=i and j not in pair:
-                pair.append(j)
-                pair.append(i)
-                pair = sorted(pair)
-        return pair
+            if complement in pair:
+                return [i,nums.index(complement)]
+            else:
+                pair.append(nums[i])
+
+#记住这个返回index的公式，index()
