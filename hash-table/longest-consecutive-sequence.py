@@ -11,5 +11,5 @@ class Solution:
                 current += 1
                 count += 1
             
-                longest = max(longest, count)
+            longest = max(longest, count)
         return longest
