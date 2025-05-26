@@ -14,7 +14,7 @@ class Trie:
         for c in word:
             if c not in cur.children:
                 cur.children[c] = TrieNode()
-        cur = cur.children[c]
+            cur = cur.children[c]
         cur.endOfWord = True
     
     def search(self,word:str)-> bool:
@@ -22,7 +22,7 @@ class Trie:
         for c in word:
             if c not in cur.children:
                 return False
-        cur = cur.children[c]
+            cur = cur.children[c]
         return cur.endOfWord
     
     def startsWith(self,prefix:str)-> bool:
@@ -30,7 +30,7 @@ class Trie:
         for c in prefix:
             if c not in cur.children:
                 return False
-        cur = cur.children[c]
+            cur = cur.children[c]
         return True
 
         
