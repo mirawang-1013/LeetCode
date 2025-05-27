@@ -25,10 +25,10 @@ class Solution:
                 node = queue.popleft()
                 level.append(node.val)
             #queue是用来收集下一层的node的
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
 
             result.append(level)
         return result
