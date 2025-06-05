@@ -4,7 +4,6 @@ class Solution:
         return filtered == filtered[::-1]
 
 
-
     #Solution
         # l,r = 0, len(s)-1
 
