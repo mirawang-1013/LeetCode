@@ -14,9 +14,9 @@ class Solution:
                 return
             
             #数字还没有处理完
-                possible_letters = phone_map[digits[index]]
-                for letter in possible_letters:
-                    backtrack(index+1, path+letter)
+            possible_letters = phone_map[digits[index]]
+            for letter in possible_letters:
+                backtrack(index+1, path+letter)
         #initialize
         backtrack(0,"")
         return res
