@@ -3,11 +3,10 @@ class Solution:
         if not strs:
             return ""
         prefix = strs[0]
-        for word in strs[1:]:
-            while not word.startswith(prefix): #startswith 而不是startwith
+        for c in strs[1:]:
+            while c.startswith(prefix)!=True:
                 prefix = prefix[:-1]
-                if not prefix:
-                    return ""
         return prefix
+
         
 
