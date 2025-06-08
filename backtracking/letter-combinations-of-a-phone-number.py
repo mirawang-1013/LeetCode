@@ -2,21 +2,21 @@ class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if not digits:
             return []
+        
+        tele = {
+    "2": "abc", "3": "def", "4": "ghi", "5": "jkl",
+    "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"
+}
 
-        phone_map = {
-            "2":"abc","3":"def","4":"ghi","5":"jkl","6":"mno","7":"pqrs","8":"tuv","9":"wxyz"
-        }
         res = []
 
-        def backtrack(index:int, path:str):
-            if index == len(digits):# 数字都梳理完成
+        def backtrack(index,path):
+            if index ==len(digits):
                 res.append(path)
-                return
+                return 
             
-            #数字还没有处理完
-            possible_letters = phone_map[digits[index]]
-            for letter in possible_letters:
-                backtrack(index+1, path+letter)
-        #initialize
+            for i in tele[digits[index]]:
+                backtrack(index+1,path+i)
+        
         backtrack(0,"")
         return res
