@@ -5,7 +5,7 @@ class Solution:
 
         def expandAroundCentre(l:int,r:int):
             nonlocal res, resLen
-            while l>0 and r<len(s) and s[l]==s[r]:
+            while l>=0 and r<len(s) and s[l]==s[r]:
                 if (r-l+1)>=resLen:
                     res = s[l:r+1]
                     resLen = r-l+1
@@ -15,6 +15,8 @@ class Solution:
             expandAroundCentre(i,i)
             expandAroundCentre(i,i+1)
         return res
+
+
 
 
 
