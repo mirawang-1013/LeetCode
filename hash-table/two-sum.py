@@ -1,11 +1,16 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        pair = []
+        
+        pairs = []
         for i in range(len(nums)):
-            complement = target-nums[i]
-            if complement in pair:
-                return [i,nums.index(complement)]
-            else:
-                pair.append(nums[i])
+            com_value = target-nums[i]
+            if com_value in nums and i not in pairs:
+                j=nums.index(com_value)
+                if i!=j:
+                  pairs.append(i)
+                  pairs.append(j)
+        return pairs
 
-#记住这个返回index的公式，index()
+
+
+#nums.index(i)
