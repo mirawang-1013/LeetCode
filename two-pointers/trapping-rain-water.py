@@ -1,15 +1,16 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
         total = 0
-        def max(height:List[int])->int:
+        def Max(height:List[int])->int:
             if len(height)==1:
                 return height[0]
             else:
                 tmp = max(height[1:])
                 return height[0] if height[0]>tmp else tmp
+
         for i in range(len(height)):
-            lMax = max(height[:i]+[0])
-            rMax = max(height[i+1:]+[0])
+            lMax = Max(height[:i]+[0])
+            rMax = Max(height[i+1:]+[0])
             bound = min(lMax,rMax)
             if bound>height[i]:
                 total = total+(bound-height[i])
