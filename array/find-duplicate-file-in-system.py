@@ -15,4 +15,4 @@ class Solution:
              content = content[:-1] 
              content_map[content].append(f"{dir_path}/{name}")
         result = list(content_map.values())
-        return result
+        return [v for v in result if len(v)>1]
