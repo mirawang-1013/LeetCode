@@ -3,7 +3,14 @@ from collections import Counter
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        rank = defaultdict(list)
         freq = Counter(nums)
-        return [item for item,count in heapq.nlargest(k, freq.items(), key=lambda x:x[1])]
+        result = []
+        for i in range(k):
+          a=list(freq.keys())[i]
+          result.append(a)
+        return result
+        
+
         
         
