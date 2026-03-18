@@ -1,9 +1,10 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        pair = {}
-        for i,n in enumerate(nums):
-            if n in pair:
+        num=set()
+        for i in nums:
+            if i in num:
                 return True
-            pair[n] = i
+            else:
+                 num.add(i)
         return False
         
