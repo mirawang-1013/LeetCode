@@ -8,8 +8,6 @@ class Solution:
             left,right=i+1,len(nums)-1
             while left<right:
                 total=nums[i]+nums[left]+nums[right]
-                print(f'total={i}+{nums[left]}+{nums[right]}')
-                print('total',total)
                 if total<0:
                     left+=1
                 if total>0:
