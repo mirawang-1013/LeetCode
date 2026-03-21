@@ -6,7 +6,9 @@ class Solution:
             
             if b in numbers:
                 b_index=numbers.index(b)
-                if b_index>a:
-
-                    return [a+1,b_index+1]
+                if b_index!=a:
+                    if b_index<a:
+                        return [b_index+1,a+1]
+                    else:
+                        return [a+1,b_index+1]
         
