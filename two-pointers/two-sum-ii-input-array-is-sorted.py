@@ -3,7 +3,10 @@ class Solution:
         for a in range(len(numbers)):
             
             b=target -numbers[a]
+            
             if b in numbers:
                 b_index=numbers.index(b)
-                return [a+1,b_index+1]
+                if b_index!=a:
+
+                    return [a+1,b_index+1]
         
