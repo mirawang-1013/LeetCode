@@ -7,7 +7,7 @@ class Solution:
         for i in range(len(heights)):
             w=i+1
             if len(heights)>1:
-                while w<len(heights) and heights[w]>heights[i]:
+                while w<len(heights) and heights[w]>=heights[i]:
                     area=(w-i+1)*heights[i]
                     w+=1
                     max_area=max(max_area,area)
