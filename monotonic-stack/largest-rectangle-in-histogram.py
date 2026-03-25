@@ -6,12 +6,12 @@ class Solution:
         max_area=0
         for i,h in enumerate(heights):
             start=i
-            while stack and h<=stack[-1][1]:
+            while stack and h<stack[-1][1]:
                 index,height=stack.pop()
                 max_area=max(max_area,height*(i-index))
                 start=index
             stack.append((start,h))
         for index,height in stack:
-            max_area=max(max_area, (len(heights)-i)*height)
+            max_area=max(max_area, (len(heights)-index)*height)
         return max_area
         
