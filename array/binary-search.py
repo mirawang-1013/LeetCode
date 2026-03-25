@@ -3,7 +3,7 @@ class Solution:
         left, right=0, len(nums)-1
         if target not in nums:
             return -1
-        mid=(len(nums)-1)//2
+        mid=len(nums)//2
         while left<=right:
             if nums[mid]==target:
                 return mid
