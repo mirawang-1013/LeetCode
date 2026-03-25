@@ -4,7 +4,7 @@ class Solution:
         if target not in nums:
             return -1
         mid=(len(nums)-1)//2
-        while left<right:
+        while left<=right:
             if nums[mid]==target:
                 return mid
             elif nums[mid]<target:
