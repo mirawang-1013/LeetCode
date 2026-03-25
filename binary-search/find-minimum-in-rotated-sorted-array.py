@@ -1,11 +1,14 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        rotate_times = nums[0]
-        if len(nums)%2!=0:
-            rotate_times= rotate_times % len(nums)      
-        elif len(nums)%2==0 or len(nums)<=3:
-            rotate_times= (rotate_times+1) % len(nums) 
-        return nums[rotate_times]
+        left,right=0,len(nums)-1
+        while left<right:
+            mid=(left+right)//2
+            if nums[mid]>nums[right]:
+                left=mid+1
+            else: #When nums[mid] <= nums[right], the mid element could be the minimum itself.
+                right=mid
+        return nums[mid]
+        
 
 
 
