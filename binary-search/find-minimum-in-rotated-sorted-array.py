@@ -3,12 +3,13 @@ class Solution:
         left,right=0,len(nums)-1
         if len(nums)==1:
             return nums[0]
-        while left<right:
-            mid=(left+right)//2   
-            if nums[mid]>nums[right]: 
-                left=mid+1
-            else: #When nums[mid] <= nums[right], the mid element could be the minimum itself.
-                right=mid 
+        else:
+            while left<right:
+                mid=(left+right)//2   
+                if nums[mid]>nums[right]: 
+                    left=mid+1
+                else: #When nums[mid] <= nums[right], the mid element could be the minimum itself.
+                    right=mid 
         return nums[mid]
         
 
