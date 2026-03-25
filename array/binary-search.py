@@ -9,9 +9,9 @@ class Solution:
                 return mid
             elif nums[mid]<target:
                 left=mid
-                mid=(right+left)//2
+                mid=(right+left+1)//2
             else:
                 right=mid
-                mid=(right+left)//2
+                mid=(right+left+1)//2
         return -1
 
