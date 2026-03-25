@@ -4,18 +4,18 @@ class Solution:
         if target not in nums:
             return -1
         
-        while left<=right:
+        while left<=right: # use <= instead of < 
             mid = (left+right)//2   
             if nums[mid]==target:
                 return mid
-            if nums[left]<=nums[mid]:
+            if nums[left]<=nums[mid]: # left half is sorted
                 if nums[left]<=target<nums[mid]:
                     right=mid-1
                 else:
                     left=mid+1
             
-            else: 
-                if nums[mid]<target<=nums[right]: 
+            else:  # right half is sorted
+                if nums[mid]<target<=nums[right]:  # use <= for right boundary
                     left=mid+1
                 else: 
                     right=mid-1
