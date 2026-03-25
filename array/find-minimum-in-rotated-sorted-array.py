@@ -1,15 +1,13 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        left, right = 0, len(nums)-1
+        rotate_times = nums[0]
+        if len(nums)%2!=0:
+            rotate_times= rotate_times % len(nums)
+        else:
+            rotate_times= (rotate_times+1) % len(nums)
+        return nums[rotate_times]
 
-        while left < right:
-            mid = (left+right)//2
-            if nums[mid]>nums[right]:
-                #minimum value is on the right side
-                left = mid+1
-                #minimum value is on the left side
-            else:
-                right = mid
+
+
         
-        return nums[left]
         
