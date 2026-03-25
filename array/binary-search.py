@@ -3,15 +3,13 @@ class Solution:
         left, right=0, len(nums)-1
         if target not in nums:
             return -1
-        mid=len(nums)//2
         while left<=right:
+            mid=(right+left)//2
             if nums[mid]==target:
                 return mid
             elif nums[mid]<target:
-                left=mid
-                mid=(right+left+1)//2
+                left=mid+1    
             else:
-                right=mid
-                mid=(right+left+1)//2
+                right=mid+1
         return -1
 
