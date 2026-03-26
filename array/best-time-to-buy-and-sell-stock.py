@@ -1,6 +1,6 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        min_price=price[0]
+        min_price=prices[0]
         max_profit=0
         for price in price[1:]:
             min_price=min(min_price,price)
