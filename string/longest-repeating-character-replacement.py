@@ -1,5 +1,6 @@
 from collections import defaultdict
-
+#思路是，找出频率最高的count, 然后窗口长度减count，得到差值，
+#如果差值=k,那最长的窗口长度可以等于max_count+k
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         count=defaultdict(int)
