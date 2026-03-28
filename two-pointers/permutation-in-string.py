@@ -5,8 +5,8 @@ class Solution:
             return False
         left=0
         for right in range(len(s2)):
-            while right-left+1>len(s1):
-                if Counter(s2[left:right])==Counter(s1):
+            while right-left+1>=len(s1):
+                if Counter(s2[left:right+1])==Counter(s1):
                     return True
                 else:
                     left+=1
