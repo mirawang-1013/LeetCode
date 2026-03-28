@@ -1,16 +1,42 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        #思路：还是用滑动窗口，遍历right,left从0还是不断地向右滑动，直到left和right距离只有s1的长度，再去看count是否相等，相等的话返回true
-        if len(s1)>len(s2):
+        if len(s1) > len(s2):
             return False
+        #method3:速度更快一点的方法
+        now=[0]*26
+        need=[0]*26
+
+        for i in s1:
+            now[ord(i)-ord('a')]+=1
+        
         left=0
         for right in range(len(s2)):
-            while right-left+1>=len(s1):
-                if Counter(s2[left:right+1])==Counter(s1):
-                    return True
-                else:
-                    left+=1
+            need[ord(s2[right])-ord('a')]+=1
+            if right-left+1>len(s1):
+                need[ord(s2[left])-ord('a')]-=1
+                left+=1
+            if need==now:
+                return True
         return False
+        
+
+
+
+
+
+
+        #method2: 可用但慢
+        #思路：还是用滑动窗口，遍历right,left从0还是不断地向右滑动，直到left和right距离只有s1的长度，再去看count是否相等，相等的话返回true
+        # if len(s1)>len(s2):
+        #     return False
+        # left=0
+        # for right in range(len(s2)):
+        #     while right-left+1>=len(s1):
+        #         if Counter(s2[left:right+1])==Counter(s1):
+        #             return True
+        #         else:
+        #             left+=1
+        # return False
 
 
 
