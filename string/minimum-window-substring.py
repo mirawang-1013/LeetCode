@@ -10,7 +10,7 @@ from collections import Counter
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         #1.先计数，找到记录需要的字符和缺失的字符的办法
-        #2.然后开始遍历s,等到窗口长到可以满足找到所有缺失字符时，再尝试着从左边开始缩小窗口
+        #2.然后开始遍历s,等到窗口长到可以满足找到所有缺失字符时（while missing ==0)，再尝试着从左边开始缩小窗口
         #3.直到不能缩小的时候就返回字符串
 
         need = Counter(t)
@@ -23,14 +23,14 @@ class Solution:
                 missing-=1
             need[s[right]]-=1
         
-        while missing==0:
-            if right-left+1<min_len:
-                min_len=right-left+1
-                start=left
-            need[s[left]]+=1
-            if need[s[left]]>0:
-                missing+=1
-            left+=1
+            while missing==0:
+                if right-left+1<min_len:
+                    min_len=right-left+1
+                    start=left
+                need[s[left]]+=1
+                if need[s[left]]>0:
+                    missing+=1
+                left+=1
         return "" if min_len==float('inf') else s[start:start+min_len]
 
 
