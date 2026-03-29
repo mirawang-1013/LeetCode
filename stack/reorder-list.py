@@ -8,28 +8,44 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        if not head or not head.next:
-            return 
-
-        #1.找重点
-        slow, fast = head, head
-        while fast and fast.next:
-            slow = slow.next #每次移动1个点
-            fast = fast.next.next #每次移动2个点
-        
-        #2.反转后半段链表
-        prev, curr = None, slow.next
-        slow.next = None 
+        nodes=[]
+        curr=head
         while curr:
-            next_tmp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next_tmp
+            nodes.append(curr)
+            curr=curr.next
+        left, right=0,len(nodes)-1
+        while left<right:
+            nodes[left].next=nodes[right]
+            left+=1
+            nodes[right].next=nodes[left]
+            right-=1
+        nodes[left].next=None
+
+
+
+
+        # if not head or not head.next:
+        #     return 
+
+        # #1.找重点
+        # slow, fast = head, head
+        # while fast and fast.next:
+        #     slow = slow.next #每次移动1个点
+        #     fast = fast.next.next #每次移动2个点
         
-        #merge the two halves
-        first, second = head, prev
-        while second:
-            tmp1, tmp2 = first.next, second.next
-            first.next = second
-            second.next = tmp1
-            first, second = tmp1, tmp2
+        # #2.反转后半段链表
+        # prev, curr = None, slow.next
+        # slow.next = None 
+        # while curr:
+        #     next_tmp = curr.next
+        #     curr.next = prev
+        #     prev = curr
+        #     curr = next_tmp
+        
+        # #merge the two halves
+        # first, second = head, prev
+        # while second:
+        #     tmp1, tmp2 = first.next, second.next
+        #     first.next = second
+        #     second.next = tmp1
+        #     first, second = tmp1, tmp2
