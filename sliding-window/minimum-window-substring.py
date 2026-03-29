@@ -25,7 +25,7 @@ class Solution:
         
         while missing==0:
             if right-left+1<min_len:
-                min_len=min(right-left+1,min_len)
+                min_len=right-left+1
                 start=left
             need[s[left]]+=1
             if need[s[left]]>0:
