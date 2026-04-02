@@ -8,7 +8,7 @@ class Solution:
             mid=(left+right)//2
             if nums[mid]==target:
                 return mid
-            elif nums[mid]>9:
+            elif nums[mid]>target:
                 right=mid
             else:
                 left=mid+1
