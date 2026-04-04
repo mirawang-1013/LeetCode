@@ -5,6 +5,5 @@ class Solution:
             if i in num:
                 return True
             else:
-                 num.add(i)
+                num.add(i)
         return False
-        
