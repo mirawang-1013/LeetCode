@@ -1,15 +1,16 @@
 from collections import Counter
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        dict1=defaultdict(int)
-        dict2=defaultdict(int)
-        for i in s:
-            dict1[i]+=1
-        for j in t:
-            dict2[j]+=1
-        return dict1==dict2
+        return Counter(s) ==  Counter(t)
+        # dict1=defaultdict(int)
+        # dict2=defaultdict(int)
+        # for i in s:
+        #     dict1[i]+=1
+        # for j in t:
+        #     dict2[j]+=1
+        # return dict1==dict2
 
-    #    return Counter(s) ==  Counter(t)
+
    #Solution 2     
         # pair1=[]
         # pair2=[]
