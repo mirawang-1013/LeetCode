@@ -4,7 +4,7 @@ from collections import Counter
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-    #方法一：heap
+    #方法一：heap， heap按照第一个元素排序，所以要把freq写在前面
         count = Counter(nums)
         heap=[]
         for num, freq in count.items():
