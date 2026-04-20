@@ -3,7 +3,7 @@ class Solution:
 #check if the starting point int the number set first, and then use while to loop through to see how long the consecutive string could be.
         num_set = set(nums)
         longest=0
-        for i in nums:
+        for i in num_set:
             if i-1 not in num_set:
                 count=1
                 current=i
