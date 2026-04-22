@@ -10,7 +10,7 @@ class Solution:
         if not preorder or not inorder:
             return None
 
-        #preorder第一个肯定是根了
+        #preorder第一个肯定是根了：根-左-右
         root_val = preorder[0] 
         root = TreeNode(root_val) #找到根了
 
