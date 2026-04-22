@@ -9,13 +9,14 @@ class Solution:
         res=[]
 
         q=collections.deque()
-        q.append(root) #把当前节点加到q中
+        q.append(root)
+
 
         while q:
-            qLen=len(q)
             level=[]
-            for i in range(qLen):
-                node=q.popleft()
+            lenq=len(q)
+            for i in range(lenq):
+                node = q.popleft()
                 if node:
                     level.append(node.val)
                     q.append(node.left)
@@ -23,3 +24,39 @@ class Solution:
             if level:
                 res.append(level)
         return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # res=[]
+
+        # q=collections.deque()
+        # q.append(root) #把当前节点加到q中
+
+        # while q:
+        #     qLen=len(q)
+        #     level=[]
+        #     for i in range(qLen):
+        #         node=q.popleft()
+        #         if node:
+        #             level.append(node.val)
+        #             q.append(node.left)
+        #             q.append(node.right)
+        #     if level:
+        #         res.append(level)
+        # return res
