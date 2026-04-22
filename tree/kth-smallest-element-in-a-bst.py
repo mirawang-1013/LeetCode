@@ -6,15 +6,43 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        stack = []
+        stack=[]
         while True:
             while root:
-                stack.append(root) #给stack push 根
-                root = root.left #先遍历左边的节点，把小于root的全部压入stack
-            #当root = None的时候，可以pop stack
-            root = stack.pop()
+                stack.append(root)
+                root=root.left
+            root=stack.pop()
             k-=1
             if k==0:
                 return root.val
             root=root.right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # stack = []
+        # while True:
+        #     while root:
+        #         stack.append(root) #给stack push 根
+        #         root = root.left #先遍历左边的节点，把小于root的全部压入stack
+        #     #当root = None的时候，可以pop stack
+        #     root = stack.pop()
+        #     k-=1
+        #     if k==0:
+        #         return root.val
+        #     root=root.right
         
