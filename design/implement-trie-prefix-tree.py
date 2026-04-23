@@ -1,45 +1,45 @@
-class TrieNode:
-    def __init__(self):
-        self.children = {}
-        self.endOfWord = False
-        # children["a"] = TrieNode()
+#前缀树： 树的每个节点储存一个字符，进行树的叶子结点不断地增加
+#       root
+#      a    w
+#      p    o
+#      p    r
+#     l     d
+#     e    #
+      #
+
 
 class Trie:
-
     def __init__(self):
-        self.root = TrieNode()
+        self.child = collections.defaultdict(dict)
+
+    
+    def insert(self, word:str) -> None:
+        node = self.child
+        for w in word:
+            if w not in node.keys():
+                node[w] = collections.defaultdict(dict)
+            node = node[w]
+        node['#'] = '#'
         
-    def insert(self, word: str) -> None:
-        cur = self.root
-        for c in word:
-            if c not in cur.children:
-                cur.children[c] = TrieNode()
-            cur = cur.children[c]
-        cur.endOfWord = True
-    
     def search(self,word:str)-> bool:
-        cur = self.root
-        for c in word:
-            if c not in cur.children:
+        node = self.child
+        for w in word:
+            if w in node.keys():
+                node = node[w]
+            else:
                 return False
-            cur = cur.children[c]
-        return cur.endOfWord
-    
-    def startsWith(self,prefix:str)-> bool:
-        cur = self.root
-        for c in prefix:
-            if c not in cur.children:
+        return '#' in node.keys() 
+
+
+    def startsWith(self, prefix:str) -> bool:
+        node = self.child
+        for w in prefix:
+            if w in node.keys():
+                node = node[w]
+            else:
                 return False
-            cur = cur.children[c]
         return True
 
-        
-
-        
 
 
-# Your Trie object will be instantiated and called as such:
-# obj = Trie()
-# obj.insert(word)
-# param_2 = obj.search(word)
-# param_3 = obj.startsWith(prefix)
+
