@@ -13,19 +13,15 @@ class Solution:
         if not node:
             return None
 
-        visited = {} #原node -> 复制新的node
+        old_to_new={node:Node(node.val)} #建新节点
+        queue = deque([node]) #建立queue
 
-        def dfs(curr):
-            if curr in visited:      # 避免重复或死循环
-                return visited[curr]
-
-            clone = Node(curr.val)   # 先复制当前节点
-            visited[curr] = clone    # 马上存进 visited
-
-            for neighbor in curr.neighbors:   # 遍历邻居
-                clone.neighbors.append(dfs(neighbor))  # 递归复制邻居
-
-            return clone             # 返回当前复制结果
-
-        return dfs(node)         # 最终返回整个复制图的入口节点
+        while queue:
+            curr=queue.popleft() #把排在queue的第一个node pop出来
+            for i in curr.neighbors:
+                if i not in old_to_new:
+                    old_to_new[i]=Node(i.val)
+                    queue.append(i) #加入queue后，后续再处理它的邻居
+                old_to_new[curr].neighbors.append(old_to_new[i]) #这就是把当前的curr和后续的邻居连接起来，不写的话就会分不出来node的邻居是什么。
+        return old_to_new[node]
 
