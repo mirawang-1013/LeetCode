@@ -12,7 +12,7 @@ class Solution:
         
         val = preorder[0]
         root=TreeNode(val)
-        mid=inorder.index(val)
+        mid=inorder.index(val) 
 
         root.left=self.buildTree(preorder[1:mid+1],inorder[:mid])
         root.right=self.buildTree(preorder[mid+1:],inorder[mid+1:])
