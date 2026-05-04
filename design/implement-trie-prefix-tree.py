@@ -1,45 +1,43 @@
-#前缀树： 树的每个节点储存一个字符，进行树的叶子结点不断地增加
-#       root
-#      a    w
-#      p    o
-#      p    r
-#     l     d
-#     e    #
-      #
-
+from typing import defaultdict
 
 class Trie:
-    def __init__(self):
-        self.child = collections.defaultdict(dict)
 
-    
-    def insert(self, word:str) -> None:
-        node = self.child
+    def __init__(self):
+        self.child=defaultdict(dict)
+        
+
+    def insert(self, word: str) -> None:
+        node=self.child
         for w in word:
             if w not in node.keys():
-                node[w] = collections.defaultdict(dict)
-            node = node[w]
-        node['#'] = '#'
+                node[w]=defaultdict(dict)
+            node=node[w]
+        node['#']='#'
         
-    def search(self,word:str)-> bool:
-        node = self.child
+
+    def search(self, word: str) -> bool:
+        node=self.child
         for w in word:
             if w in node.keys():
-                node = node[w]
+                node=node[w]
             else:
                 return False
-        return '#' in node.keys() 
+        return '#' in node.keys()
+    
+        
 
-
-    def startsWith(self, prefix:str) -> bool:
-        node = self.child
+    def startsWith(self, prefix: str) -> bool:
+        node=self.child
         for w in prefix:
             if w in node.keys():
-                node = node[w]
+                node=node[w]
             else:
                 return False
         return True
 
 
-
-
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.search(word)
+# param_3 = obj.startsWith(prefix)
