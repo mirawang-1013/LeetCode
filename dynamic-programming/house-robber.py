@@ -6,7 +6,7 @@ class Solution:
         dp=[0]*len(num)
         if len(num)==1:
             return num[0]
-        if len(num)=2:
+        if len(num)==2:
             return max(num[0],num[1])
         
         for i in range(2,len(nums)):
