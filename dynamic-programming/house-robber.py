@@ -4,7 +4,7 @@ class Solution:
         if not nums:
             return 0
         dp=[0]*len(num)
-        if len(num)=1:
+        if len(num)==1:
             return num[0]
         if len(num)=2:
             return max(num[0],num[1])
