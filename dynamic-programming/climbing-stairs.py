@@ -5,7 +5,7 @@ class Solution:
         dp=[0]*(n+1)
         dp[1]=1
         dp[2]=2
-        for i in range(n+1):
+        for i in range(3,n+1):
             dp[n]=dp[n-1]+dp[n-2]
         return dp[n]
 
