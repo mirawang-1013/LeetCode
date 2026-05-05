@@ -1,5 +1,3 @@
-from typing import defaultdict
-
 class Trie:
 
     def __init__(self):
@@ -9,10 +7,10 @@ class Trie:
     def insert(self, word: str) -> None:
         node=self.child
         for w in word:
-            if w not in node.keys():
+            if w not in node:
                 node[w]=defaultdict(dict)
             node=node[w]
-        node['#']='#'
+        node["#"]='#'
         
 
     def search(self, word: str) -> bool:
@@ -23,7 +21,6 @@ class Trie:
             else:
                 return False
         return '#' in node.keys()
-    
         
 
     def startsWith(self, prefix: str) -> bool:
@@ -34,6 +31,7 @@ class Trie:
             else:
                 return False
         return True
+        
 
 
 # Your Trie object will be instantiated and called as such:
