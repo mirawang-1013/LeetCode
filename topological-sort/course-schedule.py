@@ -18,9 +18,9 @@ class Solution:
             for pre in preMap[crs]: 
                 if not dfs(pre): #只要有一门前置课完不成，就不行
                     return False #对于课程的前置课程，如果闭环了，那就返回false
-                visitSet.remove(crs) #如果能跑的通，就把这个course移除掉
-                preMap[crs]=[] #把这门course的依赖项清空
-                return True
+            visitSet.remove(crs) #如果能跑的通，就把这个course移除掉
+            preMap[crs]=[] #把这门course的依赖项清空
+            return True
         for crs in range(numCourses):
             if not dfs(crs): #只要有一门课程出现闭环就不行
                 return False  
