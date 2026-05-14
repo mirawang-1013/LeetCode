@@ -4,7 +4,7 @@ from typing import List
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         tails=[]
-        
+
         for num in nums:
             i=bisect_left(tails,num)
             if i==len(tails):
