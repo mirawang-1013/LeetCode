@@ -1,21 +1,19 @@
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
-        #初始stack
-        stack = [-1]
-        #最长长度
-        max_len=0
+        stack=[-1]
+        max_valid=0
 
-        #遍历s,带着index和character来遍历的
-        for i,char in enumerate(s):
-            if char=='(':
-                stack.append(i)
-            else:#如果是)
+        for index,value in enumerate(s):
+            if value == '(':
+                stack.append(index)
+            else:
                 stack.pop()
                 if not stack:
-                    stack.append(i)#记录当前不匹配的位置，为什么呢
+                    stack.append(index)
                 else:
-                    max_len = max(max_len,i-stack[-1])
-        return max_len
+                    max_valid=max(max_valid,index-stack[-1])
+        return max_valid
+
 
 """
 s = "()(()"
