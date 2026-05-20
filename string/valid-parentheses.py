@@ -10,7 +10,7 @@ class Solution:
                     stack.pop()
             else:#左括号
                 stack.append(i)
-        return not stack
+        return not stack #因为循环结束只代表：中途没有出现错误匹配。但还要确认：有没有多余的左括号没被匹配掉。 所以不能用return not True
 
 
 
