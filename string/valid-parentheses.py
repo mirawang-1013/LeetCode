@@ -10,7 +10,7 @@ class Solution:
                     stack.pop()
             else:#左括号
                 stack.append(i)
-        return True
+        return not stack
 
 
 
