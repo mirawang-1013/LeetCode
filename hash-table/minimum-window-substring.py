@@ -12,26 +12,77 @@ class Solution:
         #1.先计数，找到记录需要的字符和缺失的字符的办法
         #2.然后开始遍历s,等到窗口长到可以满足找到所有缺失字符时（while missing ==0)，再尝试着从左边开始缩小窗口
         #3.直到不能缩小的时候就返回字符串
-
-        need = Counter(t)
-        missing = len(t)
-        min_len=float('inf')
-        left=0
-        start=0
-        for right in range(len(s)):
-            if need[s[right]]>0:
-                missing-=1
-            need[s[right]]-=1
+        if t=="": 
+            return ""
+        countT, window={},{}
+        for c in t:
+            countT[c] = 1+countT.get(c,0)
         
-            while missing==0:
-                if right-left+1<min_len:
-                    min_len=right-left+1
-                    start=left
-                need[s[left]]+=1
-                if need[s[left]]>0:
-                    missing+=1
-                left+=1
-        return "" if min_len==float('inf') else s[start:start+min_len]
+        have, need=0,len(countT)
+        res, resLen = [-1,-1],float("infinity")
+        l=0
+
+        for r in range(len(s)):
+            c=s[r]
+            window[c]=1+window.get(c,0)
+
+            if c in countT and window[c] == countT[c]:
+                have+=1
+            
+            while have==need:
+                #update our result
+                if (r-l+1)<resLen:
+                    res=[l,r]
+                    resLen=(r-l+1)
+                
+                #pop from the left of our window
+                window[s[l]]-=1
+                if s[l] in countT and window[s[l]]<countT[s[l]]:
+                    have -= 1 
+                l+=1
+        l,r = res
+        return s[l:r+1] if resLen!=float("infinity") else ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #solution
+
+        # need = Counter(t)
+        # missing = len(t)
+        # min_len=float('inf')
+        # left=0
+        # start=0
+        # for right in range(len(s)):
+        #     if need[s[right]]>0:
+        #         missing-=1
+        #     need[s[right]]-=1
+        
+        #     while missing==0:
+        #         if right-left+1<min_len:
+        #             min_len=right-left+1
+        #             start=left
+        #         need[s[left]]+=1
+        #         if need[s[left]]>0:
+        #             missing+=1
+        #         left+=1
+        # return "" if min_len==float('inf') else s[start:start+min_len]
 
 
 
