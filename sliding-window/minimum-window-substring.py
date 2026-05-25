@@ -12,40 +12,31 @@ class Solution:
         #1.先计数，找到记录需要的字符和缺失的字符的办法
         #2.然后开始遍历s,等到窗口长到可以满足找到所有缺失字符时（while missing ==0)，再尝试着从左边开始缩小窗口
         #3.直到不能缩小的时候就返回字符串
-        if t=="": 
+        if t=="":
             return ""
+        
         countT, window={},{}
         for c in t:
-            countT[c] = 1+countT.get(c,0)
+            countT[c]=1+countT.get(c,0)
         
-        have, need=0,len(countT)
-        res, resLen = [-1,-1],float("infinity")
+        have,need =0,len(countT)
+        res,resLen=[-1,-1],float("infinity")
         l=0
-
         for r in range(len(s)):
-            c=s[r]
-            window[c]=1+window.get(c,0)
-
-            if c in countT and window[c] == countT[c]:
+            window[s[r]]=1+window.get(s[r],0)
+            if s[r] in countT and countT[s[r]]==window[s[r]]:
                 have+=1
             
             while have==need:
-                #update our result
-                if (r-l+1)<resLen:
+                if r - l + 1 < resLen:
                     res=[l,r]
-                    resLen=(r-l+1)
-                
-                #pop from the left of our window
+                    resLen=r-l+1
                 window[s[l]]-=1
-                if s[l] in countT and window[s[l]]<countT[s[l]]:
-                    have -= 1 
+                if s[l] in countT and countT[s[l]]>window[s[l]]:   
+                    have-=1
                 l+=1
-        l,r = res
-        return s[l:r+1] if resLen!=float("infinity") else ""
-
-
-
-
+        l,r=res
+        return s[l:r+1] if resLen!="infinity" else ""
 
 
 
