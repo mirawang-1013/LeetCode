@@ -1,27 +1,29 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
-        output=[]
-        for i in range(len(nums)):
-            if i>0 and nums[i]==nums[i-1]:
+#准备是用先排序，按次序固定住，然后再用指针去做二分查找，最后返回
+        answer=[]
+        nums.sort() #[-4,-1,-1,0,1,2]
+        gap=0
+        for i,v in enumerate(nums):
+            gap=0-v #1
+            l,r=i+1,len(nums)-1 #2,5
+            if nums[r]<gap:
                 continue
-            left,right=i+1,len(nums)-1
-            while left<right:
-                total = nums[left]+nums[right]+nums[i]
-                if total==0:
-                    output.append([nums[left],nums[right],nums[i]])
-                    while left<right and nums[left]==nums[left+1]:
-                        left+=1
-                    while left<right and nums[right]==nums[right-1]:
-                        right-=1
-                    left+=1
-                    right-=1
-                elif total>0:
-                    right=right-1
+            while l<r:
+                if nums[l]+nums[r]==gap: #-1+2=1
+                    ans=[v,nums[l],nums[r]]
+                    if ans not in answer:
+                        answer.append(ans)
+                    l+=1
+                elif nums[l]+nums[r]<gap:   
+                    l+=1
                 else:
-                    left=left+1
-        return output
+                    r-=1
+        return answer
+
                 
+            
+
 
 
 
