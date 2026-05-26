@@ -7,11 +7,12 @@ class Solution:
         for i,v in enumerate(nums):
             gap=0-v #2
             l,r=i+1,len(nums)-1 #1,2
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
             while l<r:
                 if nums[l]+nums[r]==gap: #-1+2=1
                     ans=[v,nums[l],nums[r]]
-                    if ans not in answer:
-                        answer.append(ans)
+                    answer.append(ans)
                     l+=1
                 elif nums[l]+nums[r]<gap:   
                     l+=1
