@@ -15,6 +15,7 @@ class Solution:
                     ans=[v,nums[l],nums[r]]
                     answer.append(ans)
                     l+=1
+                    r-=1
                 elif nums[l]+nums[r]<gap:   
                     l+=1
                 else:
