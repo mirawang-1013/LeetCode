@@ -16,6 +16,7 @@ class Solution:
                     answer.append(ans)
                     l+=1
                     r-=1
+                    #接下来两句很关键，就是要保证能一直跳过重复项
                     while l<r and nums[l] == nums[l - 1]:
                         l += 1
                     while l < r and nums[r] == nums[r + 1]:
