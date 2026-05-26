@@ -5,10 +5,8 @@ class Solution:
         nums.sort() #[-4,-1,-1,0,1,2]
         gap=0
         for i,v in enumerate(nums):
-            gap=0-v #1
-            l,r=i+1,len(nums)-1 #2,5
-            if nums[r]<gap:
-                continue
+            gap=0-v #-1
+            l,r=i+1,len(nums)-1 #1,2
             while l<r:
                 if nums[l]+nums[r]==gap: #-1+2=1
                     ans=[v,nums[l],nums[r]]
