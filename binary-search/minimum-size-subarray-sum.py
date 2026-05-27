@@ -9,7 +9,6 @@ class Solution:
             
             while sum>=target:
                 sum-=nums[l]
+                answer=min(answer,r-l+1)
                 l+=1
-                if sum==target:
-                    answer=min(answer,r-l+1)
         return answer if answer!=float("infinity") else 0
