@@ -9,7 +9,7 @@ class Solution:
             while l<r:
                 total=nums[l]+nums[r]+v
                 if total==0:
-                    # if [v,nums[l],nums[r]] not in answer:
+                    if [v,nums[l],nums[r]] not in answer:
                         answer.append([v,nums[l],nums[r]])
                         l+=1
                         r-=1
