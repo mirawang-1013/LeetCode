@@ -6,7 +6,8 @@ class Solution:
         sum=0
         for r in range(len(nums)):
             sum+=nums[r]
-            while sum>target:
+            
+            while sum>=target:
                 sum-=nums[l]
                 l+=1
                 if sum==target:
