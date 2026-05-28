@@ -10,30 +10,6 @@ class Solution:
         return LongLeg
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         # #当有not repeating 需求的时候都是set()
         # substring = set()
         # l=0
