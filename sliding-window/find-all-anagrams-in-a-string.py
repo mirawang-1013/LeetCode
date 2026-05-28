@@ -2,14 +2,28 @@ from collections import Counter
 from typing import List
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        len_ana=len(p)
-        answer=[]
-        for i,v in enumerate(s):
-            if i<=len(s)-len_ana:
-                new_sub=s[i:i+len_ana]
-                if Counter(new_sub)==Counter(p):
-                    answer.append(i)
-        return answer
+        if len(p)>len(s):
+            return []
+        
+        res=[]
+        p_count=Counter(p)
+        window_count=Counter(s[:len(p)])
+
+        if window_count==p_count:
+            res.append(0)
+        
+        for r in range(len(p), len(s)):
+            left=s[r-len(p)]
+            right=s[r]
+
+            window_count[right]+=1
+            window_count[left]-=1
+
+            if window_count[left]==0:
+                del window_count[left]
+            if window_count==p_count:
+                res.append(r-len(p)+1)
+        return res
 
 
 
