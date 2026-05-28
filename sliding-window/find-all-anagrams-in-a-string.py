@@ -7,9 +7,7 @@ class Solution:
         for i,v in enumerate(s):
             if i<=len(s)-len_ana:
                 new_sub=s[i:i+len_ana]
-                a=sorted(Counter(new_sub))
-                b=sorted(Counter(p))
-                if a==b:
+                if Counter(new_sub)==Counter(p):
                     answer.append(i)
         return answer
 
