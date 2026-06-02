@@ -10,7 +10,7 @@ class Solution:
 
         for num in nums:
             prefix+=num
-            ans=prefix_count[prefix-k]
+            ans+=prefix_count[prefix-k]
             prefix_count[prefix]+=1
         return ans
 
