@@ -7,12 +7,7 @@ class Solution:
                     r+=1
                 return s[l+1:r]
             for i in range(len(s)):
-                odd=expand(i,i)
-                even = expand(i,i+1)
-                if len(odd)>len(result):
-                    result=odd
-                if len(even)>len(result):
-                    result = even
+                result=max(result,expand(i,i),expand(i,i+1),key=len)
             return result
         
         
