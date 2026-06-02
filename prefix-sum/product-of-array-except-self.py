@@ -5,24 +5,74 @@ class Solution:
         #再把右边的乘积算好
         #两边相乘得到答案
         #原来product是乘积的意思
-        length = len(nums)
-        left = [0]*length
-        right = [0]*length
-        output = [0]*length
+        length=len(nums)
+        left=[0]*length
+        right=[0]*length
+        output=[0]*length
 
         left[0]=1
         right[length-1]=1
 
-        for i in range(1,length):
+        for i in range(1,len(nums)):
             left[i]=left[i-1]*nums[i-1]
-
         
         for i in range(length-2,-1,-1):
             right[i]=right[i+1]*nums[i+1]
-        
-        for i in range(length):
-            output[i] = left[i]*right[i]
+
+        for i in range(0,length):
+            output[i]=left[i]*right[i]
+
         return output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # length = len(nums)
+        # left = [0]*length
+        # right = [0]*length
+        # output = [0]*length
+
+        # left[0]=1
+        # right[length-1]=1
+
+        # for i in range(1,length):
+        #     left[i]=left[i-1]*nums[i-1]
+
+        
+        # for i in range(length-2,-1,-1):
+        #     right[i]=right[i+1]*nums[i+1]
+        
+        # for i in range(length):
+        #     output[i] = left[i]*right[i]
+        # return output
 
 
 
