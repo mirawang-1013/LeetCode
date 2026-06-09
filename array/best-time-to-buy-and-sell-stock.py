@@ -3,7 +3,7 @@ class Solution:
         l=0
         max_gain=0
         while l<len(prices):
-            for r in range(l,len(prices)):
+            for r in range(l+1,len(prices)):
                 max_gain=max(max_gain,prices[r]-prices[l])
             l+=1
         return max_gain
