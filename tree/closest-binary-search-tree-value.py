@@ -9,7 +9,7 @@ class Solution:
         best=root
         node=root
         while node:
-            if abs(node.val-target)<abs(best.val-target):
+            if (abs(node.val - target), node.val) < (abs(best.val - target), best.val):
                 best=node
             node=node.left if target<node.val else node.right
         return best.val
