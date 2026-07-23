@@ -19,14 +19,14 @@ class Solution:
                     queue.append([i,j])
                     grid[i][j]='0'
             
-                while queue:
-                    r,c=queue.popleft()
-                    direction=[(-1,0),(1,0),(0,1),(0,-1)]
-                    for nx,ny in direction:
-                        nr,nc=nx+r,ny+c
-                        if rows>nr>=0 and 0<=nc<cols and grid[nr][nc]=='1':
-                                queue.append([nr,nc])
-                                grid[nr][nc]='0'
+                    while queue:
+                        r,c=queue.popleft()
+                        direction=[(-1,0),(1,0),(0,1),(0,-1)]
+                        for nx,ny in direction:
+                            nr,nc=nx+r,ny+c
+                            if rows>nr>=0 and 0<=nc<cols and grid[nr][nc]=='1':
+                                    queue.append([nr,nc])
+                                    grid[nr][nc]='0'
         return count
 
 
