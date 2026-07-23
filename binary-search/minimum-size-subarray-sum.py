@@ -1,13 +1,12 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        answer=float("infinity")
-        l=0
+        answer = float("infinity")
         sum=0
+        l=0
         for r in range(len(nums)):
             sum+=nums[r]
-            
-            while sum>=target:
-                answer=min(answer,r-l+1)
-                sum-=nums[l]
+            while sum>target:
                 l+=1
-        return answer if answer!=float("infinity") else 0
+                sum-=nums[l]
+                answer=min(answer,r-l+1)
+        return 0 if answer ==float("infinity") else answer
