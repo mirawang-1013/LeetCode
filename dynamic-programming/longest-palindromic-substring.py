@@ -7,10 +7,8 @@ class Solution:
                 r+=1
             return s[l+1:r]
         for i in range(len(s)):
-            result=max(result,expand(i,i),expand(i,i+1), key=len)
+            result=max(result,expand(i,i),expand(i,i+1),key=len)
         return result
-        
-        
         
         
         
