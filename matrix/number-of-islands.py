@@ -4,13 +4,12 @@ from collections import deque
 class Solution:
     def numIslands(self,grid:List[List[str]])->str:
         if not grid:
-            return 0
+            return 
         
         rows=len(grid)
         cols=len(grid[0])
 
         count=0
-        
 
         for i in range(rows):
             for j in range(cols):
@@ -19,16 +18,76 @@ class Solution:
                     queue=deque()
                     queue.append([i,j])
                     grid[i][j]='0'
-                    
-                    while queue:
-                        r,c=queue.popleft()
-                        directions=[(-1,0),(1,0),(0,1),(0,-1)]
-                        for nx,ny in directions:
-                            nr,nc=r+nx,c+ny
-                            if rows>nr>=0 and 0<=nc<cols and grid[nr][nc]=='1':
-                                queue.append((nr,nc))
+            
+                while queue:
+                    r,c=queue.popleft()
+                    direction=[(-1,0),(1,0),(0,1),(0,-1)]
+                    for nx,ny in direction:
+                        nr,nc=nx+r,ny+c
+                        if rows>nr>=0 and 0<=nc<cols and grid[nr][nc]=='1':
+                                queue.append([nr,nc])
                                 grid[nr][nc]='0'
         return count
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from typing import List
+# from collections import deque
+
+# class Solution:
+#     def numIslands(self,grid:List[List[str]])->str:
+#         if not grid:
+#             return 0
+        
+#         rows=len(grid)
+#         cols=len(grid[0])
+
+#         count=0
+        
+
+#         for i in range(rows):
+#             for j in range(cols):
+#                 if grid[i][j]=='1':
+#                     count+=1
+#                     queue=deque()
+#                     queue.append([i,j])
+#                     grid[i][j]='0'
+                    
+#                     while queue:
+#                         r,c=queue.popleft()
+#                         directions=[(-1,0),(1,0),(0,1),(0,-1)]
+#                         for nx,ny in directions:
+#                             nr,nc=r+nx,c+ny
+#                             if rows>nr>=0 and 0<=nc<cols and grid[nr][nc]=='1':
+#                                 queue.append((nr,nc))
+#                                 grid[nr][nc]='0'
+#         return count
 
 
 
