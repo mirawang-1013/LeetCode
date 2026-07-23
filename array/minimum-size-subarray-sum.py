@@ -5,8 +5,9 @@ class Solution:
         l=0
         for r in range(len(nums)):
             sum+=nums[r]
-            while sum>target:
-                l+=1
-                sum-=nums[l]
+            while sum>=target:
                 answer=min(answer,r-l+1)
+                sum-=nums[l]
+                l+=1
+                
         return 0 if answer ==float("infinity") else answer
